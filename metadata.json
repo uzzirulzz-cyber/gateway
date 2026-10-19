@@ -1,0 +1,6 @@
+{
+  "name": "Playbeat Gateway",
+  "description": "Production-grade multi-provider AI routing gateway with OpenAI compatibility, automatic failover chains, and Gatefit holographic access security.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

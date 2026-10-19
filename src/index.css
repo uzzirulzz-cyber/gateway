@@ -1,0 +1,205 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #03060B;
+    color: #F1F5F9;
+    overflow-x: hidden;
+  }
+}
+
+/* 3D Perspective & Hologram Stages */
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.perspective-1200 {
+  perspective: 1200px;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #070C14;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1A2638;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #334863;
+}
+
+/* Subtle holographic grid background */
+.holo-grid {
+  background-image: 
+    linear-gradient(to right, rgba(56, 189, 248, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(56, 189, 248, 0.05) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* Keypad shake animation for denied state */
+@keyframes shakeKeypad {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-8px); }
+  40%, 80% { transform: translateX(8px); }
+}
+
+.animate-shake {
+  animation: shakeKeypad 0.4s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+/* Scanning scanline animation for granted state */
+@keyframes scanline {
+  0% { transform: translateY(-100%); opacity: 0; }
+  50% { opacity: 0.8; }
+  100% { transform: translateY(100%); opacity: 0; }
+}
+
+.animate-scanline {
+  animation: scanline 1.2s ease-in-out infinite;
+}
+
+/* Super Blazing Fire Animations for outer node lines */
+@keyframes superFireSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes fireFlicker {
+  0%, 100% {
+    filter: drop-shadow(0 0 20px #FF3700) drop-shadow(0 0 45px #FF8800);
+    transform: scale(1);
+  }
+  25% {
+    filter: drop-shadow(0 0 28px #FF0033) drop-shadow(0 0 60px #FFAA00);
+    transform: scale(1.03);
+  }
+  50% {
+    filter: drop-shadow(0 0 35px #FF5500) drop-shadow(0 0 75px #FFCC00);
+    transform: scale(1.05);
+  }
+  75% {
+    filter: drop-shadow(0 0 25px #FF1100) drop-shadow(0 0 50px #FF7700);
+    transform: scale(1.02);
+  }
+}
+
+.animate-blazing-fire {
+  animation: superFireSpin 2.2s linear infinite, fireFlicker 1.8s ease-in-out infinite;
+}
+
+.animate-blazing-fire-reverse {
+  animation: superFireSpin 1.6s linear infinite reverse;
+}
+
+/* Floating flame embers */
+@keyframes emberRise {
+  0% { transform: translateY(0) scale(1); opacity: 0.9; }
+  50% { transform: translateY(-30px) translateX(8px) scale(0.8); opacity: 0.6; }
+  100% { transform: translateY(-60px) translateX(-6px) scale(0.2); opacity: 0; }
+}
+
+.animate-ember-1 { animation: emberRise 1.6s ease-out infinite; }
+.animate-ember-2 { animation: emberRise 2.1s ease-out infinite 0.4s; }
+.animate-ember-3 { animation: emberRise 1.9s ease-out infinite 0.8s; }
+
+/* Violent Digital Short-Circuit Glitch & Electrical Overload */
+@keyframes digitalShortCircuit {
+  0% {
+    transform: translate(0, 0) skew(0deg);
+    filter: drop-shadow(0 0 10px #FF0055) hue-rotate(0deg);
+  }
+  10% {
+    transform: translate(-10px, 4px) skew(-3deg);
+    filter: drop-shadow(0 0 25px #FF3B00) hue-rotate(90deg);
+  }
+  20% {
+    transform: translate(12px, -6px) skew(4deg);
+    filter: drop-shadow(0 0 40px #00F0FF) hue-rotate(180deg);
+  }
+  30% {
+    transform: translate(-8px, -2px) skew(-2deg);
+    filter: drop-shadow(0 0 20px #FF0055);
+  }
+  40% {
+    transform: translate(10px, 5px) skew(3deg);
+    filter: drop-shadow(0 0 35px #FF5500) hue-rotate(270deg);
+  }
+  50% {
+    transform: translate(-6px, -4px) skew(-1deg);
+    filter: drop-shadow(0 0 15px #FF0000);
+  }
+  60% {
+    transform: translate(8px, 2px) skew(2deg);
+  }
+  70% {
+    transform: translate(-4px, 3px) skew(-1deg);
+  }
+  80% {
+    transform: translate(3px, -2px) skew(1deg);
+  }
+  90% {
+    transform: translate(-2px, 1px) skew(0deg);
+  }
+  100% {
+    transform: translate(0, 0) skew(0deg);
+    filter: drop-shadow(0 0 5px #FF0055);
+  }
+}
+
+.animate-short-circuit-glitch {
+  animation: digitalShortCircuit 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+/* High-voltage electrical spark strobe */
+@keyframes sparkStrobe {
+  0%, 100% { opacity: 0; }
+  15%, 35%, 65%, 85% { opacity: 1; }
+  25%, 50%, 75% { opacity: 0.2; }
+}
+
+.animate-spark-strobe {
+  animation: sparkStrobe 0.45s steps(2, start) infinite;
+}
+
+/* Electric glow pulse */
+@keyframes electricPulse {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.25), inset 0 0 15px rgba(56, 189, 248, 0.05);
+  }
+  50% {
+    box-shadow: 0 0 28px rgba(56, 189, 248, 0.5), inset 0 0 20px rgba(56, 189, 248, 0.15);
+  }
+}
+
+.animate-electric-pulse {
+  animation: electricPulse 2.8s ease-in-out infinite;
+}
+
+/* Live throughput frequency bars */
+@keyframes freqBounce {
+  0%, 100% { height: 25%; }
+  50% { height: 95%; }
+}
+
+.freq-bar-1 { animation: freqBounce 0.7s ease-in-out infinite; }
+.freq-bar-2 { animation: freqBounce 0.9s ease-in-out infinite 0.15s; }
+.freq-bar-3 { animation: freqBounce 0.6s ease-in-out infinite 0.3s; }
+.freq-bar-4 { animation: freqBounce 0.8s ease-in-out infinite 0.05s; }
