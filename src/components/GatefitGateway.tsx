@@ -275,7 +275,7 @@ export const GatefitGateway: React.FC<GatefitGatewayProps> = ({ onAuthorized, on
                       transform: `rotateY(${-rotationAngle}deg) scale(${isSelected ? 1.15 : 1})`,
                     }}
                   >
-                    {/* Electric Fire Pod Container - Density decreased by 25% for lean, refined plasma fidelity */}
+                    {/* Electric fire rim reduced by 25%; image size stays unchanged. */}
                     <div
                       onClick={() => handleSelectNode(operator, index)}
                       className={`relative w-52 h-52 rounded-full p-2.5 cursor-pointer transition-all duration-300 flex items-center justify-center group ${
@@ -284,33 +284,33 @@ export const GatefitGateway: React.FC<GatefitGatewayProps> = ({ onAuthorized, on
                           : 'hover:shadow-[0_0_40px_rgba(0,240,255,0.5)]'
                       }`}
                     >
-                      {/* ELECTRIC FIRE LAYER 1: 25% decreased density, high-voltage cyan-blue-violet-amber flame */}
+                      {/* Outer electric fire glow */}
                       <div 
-                        className="absolute -inset-2 rounded-full animate-blazing-fire pointer-events-none"
+                        className="absolute -inset-1.5 rounded-full animate-blazing-fire pointer-events-none"
                         style={{
                           background: 'conic-gradient(from 0deg, #00F0FF, #0077FF, #9D00FF, #FF0055, #FF6600, #FFE600, #00F0FF)',
-                          filter: 'blur(3.5px)',
-                          opacity: isSelected ? 0.95 : 0.75
+                          filter: 'blur(2.625px)',
+                          opacity: isSelected ? 0.7125 : 0.5625
                         }}
                       />
 
                       {/* ELECTRIC FIRE LAYER 2: Counter-rotating secondary lightning plasma arc */}
                       <div 
-                        className="absolute -inset-1 rounded-full animate-blazing-fire-reverse pointer-events-none"
+                        className="absolute -inset-[3px] rounded-full animate-blazing-fire-reverse pointer-events-none"
                         style={{
                           background: 'conic-gradient(from 180deg, #FF6600, #FFE600, #00F0FF, #7000FF, #FF6600)',
-                          filter: 'blur(2.2px)',
-                          opacity: 0.8
+                          filter: 'blur(1.65px)',
+                          opacity: 0.6
                         }}
                       />
 
                       {/* Electric pulse ring */}
                       <div 
-                        className="absolute -inset-2.5 rounded-full border border-cyan-400 animate-ping pointer-events-none"
+                        className="absolute -inset-[7.5px] rounded-full border-[0.75px] border-cyan-400 animate-ping pointer-events-none"
                         style={{
                           animationDuration: '2.8s',
-                          opacity: 0.28,
-                          boxShadow: '0 0 18px #00F0FF'
+                          opacity: 0.21,
+                          boxShadow: '0 0 13.5px #00F0FF'
                         }}
                       />
 
@@ -322,7 +322,7 @@ export const GatefitGateway: React.FC<GatefitGatewayProps> = ({ onAuthorized, on
                       )}
 
                       {/* Crystal-Clear Inner Pod: 3 User Images are 100% VISIBLE INSIDE with NO obstruction */}
-                      <div className="relative w-full h-full rounded-full overflow-hidden bg-slate-950 border-2 border-cyan-400/80 z-10 flex items-center justify-center shadow-2xl">
+                      <div className="relative w-full h-full rounded-full overflow-hidden bg-slate-950 border-[1.5px] border-cyan-400/80 z-10 flex items-center justify-center shadow-2xl">
                         <img
                           src={imageSrc}
                           alt="Security Node Identity"
